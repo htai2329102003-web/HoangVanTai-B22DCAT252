@@ -1,0 +1,6 @@
+Bai lab: URL Cloaking & Delayed Activation
+
+Sinh vien hoan thien logic trong delay_logic.py de phan biet truy cap cua
+sandbox/bot (quet ngay lap tuc) voi truy cap cua nguoi dung that (sau mot
+khoang thoi gian tre), tu do dieu huong (redirect) ve trang decoy hoac
+trang payload mo phong tuong ung.

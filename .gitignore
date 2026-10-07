@@ -1,0 +1,18 @@
+# Ignore all existing Labtainer labs
+/*
+
+# Keep this gitignore
+!/.gitignore
+
+# Track only our custom lab
+!/phish-cloak-delay/
+!/phish-cloak-delay/**
+
+# Ignore Labtainer build artifacts
+/phish-cloak-delay/phish-cloak-delay/home_tar/
+/phish-cloak-delay/phish-cloak-delay/sys_tar/
+/phish-cloak-delay/phish-cloak-delay/*.tar.gz
+
+# Ignore Python temporary files
+/phish-cloak-delay/phish-cloak-delay/__pycache__/
+*.pyc

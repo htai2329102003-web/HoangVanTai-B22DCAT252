@@ -1,0 +1,16 @@
+=== Bai lab: URL Cloaking & Delayed Activation ===
+
+Trong lab nay ban se:
+  1. Khao sat chuoi redirect trong cloak_server.py
+  2. Hoan thien ham decide_destination() trong delay_logic.py
+  3. Kiem thu bang sandbox_bot.py (phai bi dieu huong sang decoy)
+     va victim_browser.py (phai duoc dieu huong sang payload sau khi tre)
+
+Khoi dong server:
+    python3 cloak_server.py &
+
+Kiem thu:
+    python3 sandbox_bot.py
+    python3 victim_browser.py
+
+Khi hoan thanh, dung: stoplab phish-cloak-delay
