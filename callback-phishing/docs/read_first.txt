@@ -1,0 +1,30 @@
+CALLBACK PHISHING / TOAD LAB - READ FIRST
+========================================
+
+Lab name: callback-phishing
+Containers:
+  attacker-srv  172.21.0.2
+  support-bot   172.21.0.3
+  victim-pc     172.21.0.4
+
+Internal lab services planned by this configuration:
+  victim-pc:7070      simulated mail receiver
+  support-bot:9000    simulated callback/support conversation
+  attacker-srv:4444   lab-only callback receiver
+
+The exercise is designed for Labtainer's isolated Docker network.  Use only the
+synthetic data shipped with the lab.  The configuration package intentionally
+contains configuration and Docker build files only; the Python exercise source
+files are developed separately and must emit the exact event markers listed in
+instr_config/results.config.
+
+Expected student flow after source files are installed:
+  1. Start mail_server.py on victim-pc.
+  2. Start listener.py on attacker-srv.
+  3. Start chatbot_server.py on support-bot.
+  4. Run send_email.py on attacker-srv.
+  5. Run read_mail.py then call_support.py on victim-pc.
+  6. Follow the lab conversation and run callback_client.py on victim-pc.
+  7. Use checkwork callback-phishing to view progress.
+
+All names, account details and data in this lab must remain fictitious.

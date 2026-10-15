@@ -1,0 +1,6 @@
+Callback Phishing (TOAD) Lab
+
+This Labtainer exercise demonstrates a telephone-oriented phishing chain inside an isolated three-container network:
+  attacker-srv -> victim-pc -> support-bot -> victim-pc -> attacker-srv.
+
+The scenario uses only synthetic data and lab-only services.  No real telephone number, real account, real credential, or external target is used.
