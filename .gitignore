@@ -16,3 +16,23 @@
 # Ignore Python temporary files
 /phish-cloak-delay/phish-cloak-delay/__pycache__/
 *.pyc
+
+# Track bec-vendor-phish lab
+!/bec-vendor-phish/
+!/bec-vendor-phish/**
+
+# Ignore bec-vendor-phish build artifacts
+/bec-vendor-phish/*/home_tar/
+/bec-vendor-phish/*/sys_tar/
+/bec-vendor-phish/*/*.tar.gz
+/bec-vendor-phish/**/__pycache__/
+
+# Track bec-vendor-phish lab
+!/bec-vendor-phish/
+!/bec-vendor-phish/**
+
+# Ignore bec-vendor-phish build artifacts
+/bec-vendor-phish/*/home_tar/
+/bec-vendor-phish/*/sys_tar/
+/bec-vendor-phish/*/*.tar.gz
+/bec-vendor-phish/**/__pycache__/

@@ -1,0 +1,85 @@
+BEC + VENDOR PHISHING — Labtainers IModule
+Lab ID: bec-vendor-phish
+
+1. MỤC TIÊU
+- Nhận diện tình huống Business Email Compromise (BEC) giả danh CEO.
+- Nhận diện phishing hóa đơn/nhà cung cấp với yêu cầu đổi tài khoản nhận tiền.
+- Quan sát các tín hiệu login, gửi thư, đọc thư, click landing và submit form.
+- Hiểu vì sao yêu cầu gấp, bí mật, thay đổi tài khoản thanh toán cần xác minh qua kênh độc lập.
+
+2. PHẠM VI AN TOÀN
+Đây là mô phỏng nội bộ. Không có SMTP và không gửi email ra Internet. Chỉ sử dụng
+ba tài khoản demo bên dưới, và chỉ nhập giá trị giả như 0000000000. Ứng dụng không
+lưu giá trị nhập từ form và không ghi các giá trị đó vào log. Không nhập thông tin
+ngân hàng, mật khẩu, email hoặc dữ liệu cá nhân thật. Không chuyển tiếp/port-forward
+port 5000 ra mạng LAN hoặc Internet.
+
+3. KHỞI ĐỘNG
+Từ terminal trong thư mục làm việc `labtainer-student`:
+    labtainer bec-vendor-phish
+
+Mở Firefox trong VM Labtainers và truy cập:
+    http://172.25.0.2:5000
+
+Nếu đây là lần đầu dùng IModule và lab chưa hiện trong danh sách, nhập archive IModule theo README_VI.md đi kèm bản phát hành trước. Khi khởi động, container mail-server
+chạy Flask webmail; victim-pc hiển thị hướng dẫn thao tác.
+
+4. TÀI KHOẢN DEMO
+CEO mô phỏng       ceo@company.vn       / ceo123
+Vendor mô phỏng    vendor@abc-supply.vn / vendor123
+Kế toán (victim)   finance@company.vn  / finance123
+
+5. CÁC BƯỚC THỰC HÀNH
+Bước A — Gửi email mô phỏng BEC
+1) Đăng nhập ceo@company.vn / ceo123.
+2) Mở Thư nháp, mở thư nháp BEC và nhấn Gửi.
+3) Kiểm tra email được gửi tới finance@company.vn.
+
+Bước B — Gửi email mô phỏng Vendor
+1) Đăng xuất.
+2) Đăng nhập vendor@abc-supply.vn / vendor123.
+3) Mở Thư nháp, mở thư nháp Vendor và nhấn Gửi.
+
+Bước C — Vai trò kế toán
+1) Đăng xuất và đăng nhập finance@company.vn / finance123.
+2) Mở và đọc cả hai email.
+3) Click link mô phỏng trong mỗi thư.
+4) Điền giá trị giả rồi submit mỗi form. Trang kết quả xác nhận chỉ ghi nhận sự kiện,
+   không lưu nội dung các trường.
+
+6. QUAN SÁT LOG
+Trong terminal mail-server:
+    tail -f ~/webmail.log
+    tail -f ~/form_events.log
+
+webmail.log ghi sự kiện login/logout, email sent/read và landing click. Form_events.log
+chỉ ghi marker FORM_SUBMIT type=... user=finance@company.vn. Không có số tài khoản,
+tên ngân hàng, số tiền, tên công ty hay email liên hệ được ghi vào log.
+
+7. CHECKWORK
+Chạy từ terminal đang ở trong lab:
+    checkwork
+
+Các goal:
+- ceo_email_sent
+- vendor_email_sent
+- victim_read_ceo
+- victim_read_vendor
+- victim_clicked_ceo
+- victim_clicked_vendor
+- data_harvested (cả hai form demo được submit)
+- lab_complete (tất cả goal trên hoàn thành)
+
+8. LÀM LẠI / DỪNG LAB
+Để tạo trạng thái mới và xóa các container cũ:
+    labtainer bec-vendor-phish -r
+
+Dừng lab theo lệnh Labtainers hiển thị trên hệ thống, thường là:
+    stoplab
+
+9. CÂU HỎI TỰ ĐÁNH GIÁ
+- Dấu hiệu nào khiến email BEC cần xác minh độc lập?
+- Tại sao không nên dùng số tài khoản mới chỉ dựa trên email?
+- Qua kênh nào nên xác minh yêu cầu chuyển tiền hoặc đổi thông tin nhà cung cấp?
+- Header, địa chỉ người gửi, domain và ngữ cảnh giao dịch nào cần kiểm tra?
+- Quy trình phê duyệt hai người và callback tới số đã biết giúp giảm rủi ro ra sao?

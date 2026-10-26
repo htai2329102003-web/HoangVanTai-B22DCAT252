@@ -1,0 +1,17 @@
+Lab: BEC + Vendor & Supply-Chain Phishing (bec-vendor-phish)
+
+MUC TIEU
+  Mo phong BEC (gia mao CEO) va vendor invoice phishing trong mot webmail
+  noi bo, phuc vu hoc tap nhan dien email khan cap va thay doi tai khoan nhan tien.
+
+MOI TRUONG
+  - mail-server: Flask + SQLite, webmail mo tai http://172.25.0.2:5000
+  - victim-pc: terminal huong dan thuc hanh
+  - Tai khoan va email deu la du lieu demo.
+
+GHI LOG AN TOAN
+  ~/webmail.log      Chi ghi su kien dang nhap/gui/doc/click (khong log noi dung thu).
+  ~/form_events.log  Chi ghi marker FORM_SUBMIT de checkwork cham diem.
+
+Khong gui email ra Internet. Form khong luu gia tri nhap va khong duoc dung voi
+thong tin tai khoan/ngan hang that. Chi chay trong VM Labtainers dung cho lab.
