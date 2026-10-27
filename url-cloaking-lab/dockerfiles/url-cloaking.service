@@ -1,0 +1,16 @@
+[Unit]
+Description=URL Cloaking training web application
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/url-cloaking-lab
+Environment=PORT=8080
+Environment=SCANNER_IPS=192.168.1.50
+ExecStart=/usr/bin/python3 /opt/url-cloaking-lab/app.py
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

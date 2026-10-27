@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Verify the actual HTTP behavior from the scanner container/network namespace.
+set +e
+body="$(mktemp)"
+status="$(curl --noproxy '*' -sS -o "$body" -w '%{http_code}' --max-time 5 http://192.168.1.100:8080/ 2>/dev/null)"
+if [ "$status" = "200" ] && grep -q 'data-lab-marker="normal-page"' "$body" 2>/dev/null; then
+    printf 'SCANNER_STATUS=200 NORMAL_PAGE=1\n'
+else
+    printf 'SCANNER_STATUS=%s NORMAL_PAGE=0\n' "${status:-000}"
+fi
+rm -f "$body"
+
+if grep -q 'firefox' "$HOME/.bash_history" 2>/dev/null; then
+    printf 'SCANNER_BROWSER=1\n'
+else
+    printf 'SCANNER_BROWSER=0\n'
+fi

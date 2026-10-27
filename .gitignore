@@ -36,3 +36,13 @@
 /bec-vendor-phish/*/sys_tar/
 /bec-vendor-phish/*/*.tar.gz
 /bec-vendor-phish/**/__pycache__/
+
+# Track url-cloaking-lab
+!/url-cloaking-lab/
+!/url-cloaking-lab/**
+
+# Ignore url-cloaking-lab build artifacts
+/url-cloaking-lab/*/home_tar/
+/url-cloaking-lab/*/sys_tar/
+/url-cloaking-lab/*/*.tar.gz
+/url-cloaking-lab/**/__pycache__/

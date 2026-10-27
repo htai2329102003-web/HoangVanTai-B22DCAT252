@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northstar Documents | Secure Review</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="site site-simulation" data-lab-marker="simulation-page">
+  {% if preview %}<div class="preview-ribbon preview-ribbon-danger">BẢN XEM TRƯỚC · Giao diện victim (không kiểm tra IP ở route này)</div>{% endif %}
+  <header class="phish-topbar"><a class="brand" href="/"><span class="brand-mark brand-mark-blue">N</span><span>northstar<span class="brand-light">/documents</span></span></a><span class="secure-label"><span class="lock">⌑</span> DOCUMENT REVIEW</span></header>
+  <main class="simulation-layout">
+    <section class="document-card">
+      <div class="doc-art"><div class="doc-glow"></div><div class="doc-sheet"><div class="doc-lines"><i></i><i></i><i></i></div><div class="doc-seal">N</div><div class="doc-bottom-lines"><i></i><i></i></div></div><div class="doc-tag">SUPPLIER<br>AGREEMENT</div></div>
+      <div class="document-content">
+        <div class="eyebrow eyebrow-blue"><span class="status-dot"></span> ACTION REQUIRED</div>
+        <h1>Một tài liệu đang chờ bạn xem xét.</h1>
+        <p class="hero-lede">Nhóm vận hành đã chia sẻ một tài liệu đối tác. Hãy kiểm tra tên miền, nguồn gửi và đích đến trước khi tiếp tục.</p>
+        <div class="document-meta"><div class="file-icon">PDF</div><div><strong>Supplier_Agreement_Q4.pdf</strong><small>Tài liệu đối tác · 2,4 MB</small></div><span class="pill pill-amber">Chờ xem</span></div>
+        <form action="{{ url_for('training_complete') }}" method="post"><button class="button button-primary button-wide" type="submit">Tiếp tục xem tài liệu <span aria-hidden="true">→</span></button></form>
+        <div class="subtle-warning"><span class="warning-icon">!</span><span>Luôn xác minh URL và danh tính người gửi trước khi mở tài liệu bất ngờ.</span></div>
+      </div>
+    </section>
+    <aside class="simulation-side"><div class="side-icon">↗</div><h2>Trước khi tiếp tục</h2><p>Hãy dành một chút thời gian để kiểm tra đường dẫn. Trang web có vẻ hợp lệ không đồng nghĩa với việc URL đáng tin cậy.</p><div class="checklist"><div><span>01</span>Kiểm tra tên miền</div><div><span>02</span>Xác minh người gửi</div><div><span>03</span>Quan sát chuyển hướng</div></div><div class="training-tag">TRANG MÔ PHỎNG TRONG LAB</div></aside>
+  </main>
+  <footer><span>Northstar Documents · Mô phỏng an toàn</span><span>Không yêu cầu hoặc lưu thông tin đăng nhập.</span></footer>
+  {% if preview %}<div class="source-chip">Xem trước · Không phân loại IP</div>{% endif %}
+</body>
+</html>

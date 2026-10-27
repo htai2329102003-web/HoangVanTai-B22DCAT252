@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Labtainers runs this when stoplab/checkwork is invoked.
+set +e
+health_code="$(curl --noproxy '*' -sS -o /tmp/url_cloaking_health.json -w '%{http_code}' --max-time 4 http://127.0.0.1:8080/health 2>/dev/null)"
+if [ "$health_code" = "200" ] && grep -Eq '"status"[[:space:]]*:[[:space:]]*"ok"' /tmp/url_cloaking_health.json 2>/dev/null; then
+    printf 'SERVER_HEALTH=200 APP=ready\n'
+else
+    printf 'SERVER_HEALTH=%s APP=not-ready\n' "${health_code:-000}"
+fi
+rm -f /tmp/url_cloaking_health.json
+
+if grep -q 'curl' "$HOME/.bash_history" 2>/dev/null; then
+    printf 'SERVER_CURL_CHECK=1\n'
+else
+    printf 'SERVER_CURL_CHECK=0\n'
+fi
